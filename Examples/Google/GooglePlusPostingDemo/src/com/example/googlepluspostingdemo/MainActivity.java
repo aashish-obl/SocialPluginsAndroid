@@ -1,14 +1,13 @@
 package com.example.googlepluspostingdemo;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.googlepluslibrary.OBLGooglePlusLogin;
 import com.example.googlepluslibrary.OBLGooglePlusShare;
 import com.example.googlepluslibrary.OBLGooglePlusShareInterface;
 import com.example.googlepluslibrary.OBLLog;
@@ -16,8 +15,7 @@ import com.example.googlepluslibrary.OBLLog;
 public class MainActivity extends Activity implements OnClickListener,OBLGooglePlusShareInterface{
 
 	Button share_btn,signout_btn;
-	OBLGooglePlusLogin oblgplogin;
-	OBLGooglePlusShare plusShare = new OBLGooglePlusShare(this, this);
+	OBLGooglePlusShare plusShare; 
 	OBLLog obllog=new OBLLog();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +25,15 @@ public class MainActivity extends Activity implements OnClickListener,OBLGoogleP
         signout_btn=(Button)findViewById(R.id.signout_button);
         share_btn.setOnClickListener(this);
         signout_btn.setOnClickListener(this);
+        plusShare = new OBLGooglePlusShare(this, this);
+        
     }
 
 	@Override
 	public void onClick(View v) {
 		if(v.getId() == R.id.share_button)
 		{
+			//oblgplogin.login();
 			String title = "Fantasy Crciket";
 			String description = "Build your own team, join public or private league and try to win any tournament";
 			String status = "I am just creating FantasyCricket app." + " "
@@ -60,6 +61,6 @@ public class MainActivity extends Activity implements OnClickListener,OBLGoogleP
 		plusShare.onActivityResult(requestCode, resultCode, data);
 	}
 
-	
+		
 	
 }

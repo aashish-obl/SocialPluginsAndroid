@@ -6,14 +6,11 @@ public class OBLGooglePlusFriend extends OBLGooglePlusUser {
 
 	public OBLGooglePlusFriend(String id, String name, String birthdate,
 			String gender, String imageUrl) {
-
 		this.socialMediaId = id;
 		this.name = name;
 		this.birthdate = birthdate;
 		this.gender = gender;
 		this.imageUrl = imageUrl;
-
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getSocialMediaId() {
@@ -57,10 +54,7 @@ public class OBLGooglePlusFriend extends OBLGooglePlusUser {
 		imageUrl = _imageUrl;
 	}
 
-	public String getImageUrl()
-
-	{
+	public String getImageUrl() {
 		return imageUrl;
 	}
-
 }

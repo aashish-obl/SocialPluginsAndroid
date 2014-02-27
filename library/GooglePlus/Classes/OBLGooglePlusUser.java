@@ -1,4 +1,5 @@
 package com.example.googlepluslibrary;
+
 public class OBLGooglePlusUser extends OBLProfileDetails {
 	String firstName;
 	String middlename;

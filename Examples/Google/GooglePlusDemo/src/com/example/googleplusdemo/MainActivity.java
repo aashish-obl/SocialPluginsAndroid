@@ -1,15 +1,16 @@
 package com.example.googleplusdemo;
 
 
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import com.example.googlepluslibrary.OBLGooglePlusLogin;
 import com.example.googlepluslibrary.OBLGooglePlusLoginInterface;
-import com.example.googlepluslibrary.OBLLog;
 
 public class MainActivity extends Activity implements OnClickListener,
 		OBLGooglePlusLoginInterface {
@@ -17,8 +18,7 @@ public class MainActivity extends Activity implements OnClickListener,
 	boolean result;
 	Button sign_btn;
 	OBLGooglePlusLogin oblgplogin;
-	OBLLog obllog = new OBLLog();
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -32,14 +32,14 @@ public class MainActivity extends Activity implements OnClickListener,
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		if (v.getId() == R.id.sign_button) {
-			oblgplogin.loginUsingInstalledApp(this, this);
+			oblgplogin.login();
 		}
 	}
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		obllog.logMessage("Calling onActivityResult of OBLGooglePlusLogin");
+		Log.i("Activity Result","Calling onActivityResult of OBLGooglePlusLogin");
 		oblgplogin.onActivityResult(requestCode, resultCode, data);
 
 	}
@@ -47,12 +47,10 @@ public class MainActivity extends Activity implements OnClickListener,
 	@Override
 	public void googlePlusLoginCompleted(boolean value) {
 		if (value == true) {
-			if (value == true) {
-				obllog.setDebuggingON(true);
-				obllog.logMessage("Login Successfull");
-				Intent intent = new Intent(this, OtherActivity.class);
-				startActivity(intent);
-			}
+			Log.i("Login", "Successfull");
+			Intent intent = new Intent(this, OtherActivity.class);
+			
+			startActivity(intent);
 		}
 	}
 

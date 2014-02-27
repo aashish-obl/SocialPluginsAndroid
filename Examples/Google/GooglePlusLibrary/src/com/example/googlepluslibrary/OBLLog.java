@@ -1,4 +1,5 @@
 package com.example.googlepluslibrary;
+
 import android.util.Log;
 
 public class OBLLog {
